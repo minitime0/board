@@ -1,0 +1,21 @@
+{% if request.session.user_email %}
+ <a href ="/first/change/">
+{{ request.session.user_email }} ({{ request.session.user_name }} )님 안녕
+</a>
+{% endif %}
+
+
+<hr>
+    <a href="/admin/">관리자 페이지</a>&nbsp;
+    <a href="/index1/">index1</a>&nbsp;
+    <a href="/index2/">index2</a>&nbsp;
+    <a href="/first/show/">first/show</a>&nbsp;
+{% if not request.session.user_email %}
+    <a href="/first/signup/">회원가입</a>&nbsp;
+    <a href="/first/signin/">로그인</a>&nbsp;
+{% else %}  
+    <a href="/first/signout/">로그아웃</a>&nbsp;
+{% endif %}
+    <a href="/second/army_shop">매점</a>&nbsp;
+    <a href="/first/change/">change</a>&nbsp;
+

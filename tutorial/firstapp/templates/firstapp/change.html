@@ -1,0 +1,13 @@
+
+
+<body>
+    <form action="/first/change/" method="post">
+       
+    이메일: <input type = "text" name = "email" value="{{data.email}}"><br>
+    비밀번호: <input type = "password" name = "pwd" value="{{data.pwd}}"><br>
+    이름: <input type = "text" name = "name" value="{{data.name}}"><br>
+    <button>수정</button>
+    {% csrf_token %}
+  </form>
+
+</body>

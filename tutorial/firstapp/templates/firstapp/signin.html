@@ -1,0 +1,20 @@
+<form action = "/first/signin/" method="post">
+    이메일 : <input type = "text" name = "email"><br>
+    pw: <input type = "password" name = "pwd">
+    <button type = "button" onclick="run()">보이기/숨기기</button>
+    <button>로그인</button>
+    {% csrf_token %}
+    
+</form>
+<script>
+    flip = flase
+    function run(){
+      pwd = document.querySelector('[name=pwd]')
+      if(!flip){
+        pwd.setAttribute('type','text')
+      } else {
+        pwd.setAttribute('type','password')
+    }
+    flip =!flip
+    }
+</script>

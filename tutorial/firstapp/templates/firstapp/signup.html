@@ -1,0 +1,30 @@
+<form action = "/first/signup/" method="post">
+    <input type = "text" name = "email">
+    <input type = "text" name = "pwd">
+    <input type = "text" name = "name">
+    {% csrf_token %}
+    <button>가입</button>
+</form>
+<script>
+  const button = document.querySelector('button')
+  button.addEventListener('click',(x)=> {
+     x.preventDefault() //기본 기능 차단
+     document.querySelector('form').submit()
+    })
+
+  const email = document.querySelector('[name=email]')
+  email.addEventListener('blur',() => {
+    check()
+    })
+
+  async function check() {
+    res = await fetch(`/first/id_check/?email=${email.value}`)
+    data = await res.text()
+    if(data =='Y'){
+        email.style.border = '4px solid green'
+    }else{
+        email.style.border = '4px solid red'
+    }
+    alert(data)
+  }
+</script>

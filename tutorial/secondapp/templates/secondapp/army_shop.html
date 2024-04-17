@@ -1,0 +1,40 @@
+<body>
+  <form action ="/second/army_shop/"
+        method = "get">
+    <!-- <input type = "text" name ="prd" value="카드"> -->
+    <select name="prd">
+      <option value="캔">캔</option>
+      <option value="카드">카드</option>
+    </select>
+    <button>검색</button>
+  </form> 
+  <table border="1">
+    <tr>
+      <td>순번</td><td>연도</td>
+      <td>월</td><td>종류</td><td>제품명</td>
+    </tr>
+    
+    {% for d in data %}
+    <tr>
+      <td>{{ d.id }}</td>
+      <td>{{ d.year }}</td>
+      <td>{{ d.month }}</td>
+      <td>{{ d.type }}</td>
+      <td>{{ d.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% if start > 10 %}
+
+  <a href="/second/army_shop/?page={{start|add:'-10'}}">[이전]</a>
+  {% endif %}
+  {%for n in nums %}
+    <a href="/second/army_shop/?page={{n}}">
+       {{n}}
+    </a>
+  {% endfor %}
+
+  {% if end < total_page %}
+  <a href="/second/army_shop/?page={{start|add:'10'}}">[다음]</a>
+  {% endif %}
+</body>
